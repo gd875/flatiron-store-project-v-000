@@ -33,10 +33,11 @@ class CartsController < ApplicationController
             line_item.item.inventory -= line_item.quantity
             line_item.item.save
         end
-        @user.current_cart
-        cart = Cart.find_by(:id => params[:id])
-        cart.user_id = nil
-        cart.save
+
+        # cart = Cart.find_by(:id => params[:id])
+        # binding.pry
+        @user.current_cart = nil
+        @user.save
         redirect_to cart_path(@cart)
     end
 

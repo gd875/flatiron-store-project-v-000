@@ -30,6 +30,7 @@ describe 'Feature Test: Cart', :type => :feature do
        click_button("Checkout")
 
        expect(page.current_path).to eq(cart_path(@current_cart))
+
        expect(page).to_not have_button("Checkout")
      end
 
@@ -50,7 +51,6 @@ describe 'Feature Test: Cart', :type => :feature do
      it "sets current_cart to nil on checkout" do
        visit cart_path(@user.current_cart)
        click_button("Checkout")
-
        @user.reload
        expect(@user.current_cart).to be_nil
      end
