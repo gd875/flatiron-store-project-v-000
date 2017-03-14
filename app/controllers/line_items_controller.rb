@@ -7,7 +7,7 @@ class LineItemsController < ApplicationController
      if !@user.current_cart
         @user.current_cart = Cart.create(user:  @user)
      end
-        @user.current_cart .line_items << @line_item
+        @user.current_cart .items << @line_item.item
         @user.save
   end
 
