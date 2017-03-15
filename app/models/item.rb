@@ -3,6 +3,10 @@ class Item < ActiveRecord::Base
     has_many :line_items
     has_many :carts, through: :line_items
 
+    def available
+        self.inventory >  0
+    end
+
     def self.available_items
         Item.where("inventory > ?", 0)
     end
