@@ -7,7 +7,6 @@ class CartsController < ApplicationController
     end
 
     def show
-        # binding.pry
     end
 
     def new
@@ -34,8 +33,6 @@ class CartsController < ApplicationController
             line_item.item.save
         end
 
-        # cart = Cart.find_by(:id => params[:id])
-        # binding.pry
         @user.current_cart = nil
         @user.save
         redirect_to cart_path(@cart)

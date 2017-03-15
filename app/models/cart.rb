@@ -22,13 +22,14 @@ class Cart < ActiveRecord::Base
         end
     end
 
-    def add_item(item)
-        if find_item = LineItem.find_by(:id => item) #Update quantity if exists
-            find_item.quantity += 1
-            find_item.cart_id = self.id
-            find_item
+    def add_item(item_id)
+        if found_item = LineItem.find_by(:id => item_id) #Update quantity if exists
+            found_item.quantity += 1
+            found_item.cart_id = self.id
+            found_item
         else #Create new line item if not found
-            LineItem.new(:item_id => item, :cart_id => self.id, :quantity => 1)
+            # binding.pry
+            LineItem.new(:item_id => item_id, :cart_id => self.id, :quantity => 1)
         end
     end
 

@@ -5,6 +5,6 @@ class LineItem < ActiveRecord::Base
 
     def default_quantity
         self.quantity ||= 1
-        self.save
+        # self.save
     end
 end
